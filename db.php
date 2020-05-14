@@ -15,12 +15,11 @@ if(is_array($row)){
     echo $row;
 }
 
-function all($table){
-    global $pdo;
-    $sql="select * from $table ";
-    $rows=$pdo->query($sql)->fetchAll();
-    return $rows; 
 
+
+
+function to($url){
+    header("location:".$url);
 }
 
 function find($table,$id){
@@ -35,3 +34,5 @@ function find($table,$id){
 
 
 ?>
+
+
