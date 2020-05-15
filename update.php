@@ -11,12 +11,13 @@ include_once "base.php";
  */
 $table='invoice';
 
-$row=find($table,1);
+$row=find($table,12);
 echo "<pre>";
 print_r($row);
 echo "</pre>";
 
 $row['code']="ZZ";
+$row['expend']="1000";
 
 update($table,$row);
 
@@ -25,12 +26,14 @@ function update($table,$arg){
     global $pdo;
     
     foreach($arg as $key => $value){
-        $tmp[]=sprintf("`%s`='%s'",$key,$value);
+        if($key!='id'){
+            $tmp[]=sprintf("`%s`='%s'",$key,$value);
+        }
     }
 
     $sql="update $table set ".implode(',',$tmp)." where `id`='".$arg['id']."'";
     echo $sql;
-    //return $pdo->exec($sql);
+    return $pdo->exec($sql);
 }
 
 
