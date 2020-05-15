@@ -36,7 +36,7 @@ function nums($table,...$arg){
         $sql=$sql . $arg[1];
     }
 
-    echo $sql;
+    //echo $sql;
 
     return $pdo->query($sql)->fetchColumn();
 }
