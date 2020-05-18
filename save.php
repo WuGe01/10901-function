@@ -42,13 +42,13 @@ function save($table,$arg){
     return $pdo->exec($sql);
 }
 
-function find($table,$id){
+/* function find($table,$id){
     global $pdo;
     $sql="select * from $table where id='$id'";
     $row=$pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     if(empty($row)){
         return "無符合資料的內容";
     }
-    return $row;
-}
+    return $row; 
+}*/
 ?>
